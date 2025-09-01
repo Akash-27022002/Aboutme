@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Akash Sachan — Backend Developer</title>
+    <meta name="description" content="Portfolio of Akash Sachan, Backend Developer specializing in Java, Spring Boot, Node.js, Django, Microservices, REST APIs, and DevOps." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-neutral-950 text-neutral-200 antialiased font-sans" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;">
+    <!-- Background accents -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl"></div>
+      <div class="absolute top-1/3 -left-24 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/60 border-b border-neutral-800/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="#top" class="group inline-flex items-center gap-2">
+            <div class="flex h-8 w-8 items-center justify-center rounded-md bg-neutral-800 outline outline-1 outline-neutral-700 group-hover:outline-neutral-600 transition">
+              <span class="text-sm font-semibold tracking-tight">AS</span>
+            </div>
+            <span class="text-sm text-neutral-300 group-hover:text-white transition">Akash Sachan</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6">
+            <a href="#about" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">About</a>
+            <a href="#skills" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Skills</a>
+            <a href="#experience" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Experience</a>
+            <a href="#projects" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Projects</a>
+            <a href="#education" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Education</a>
+            <a href="#profiles" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Profiles</a>
+            <a href="#contact" class="text-sm text-neutral-300 hover:text-white hover:underline underline-offset-4 transition">Contact</a>
+          </nav>
+          <div class="hidden md:flex items-center gap-3">
+            <a href="mailto:your.email@example.com" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="mail" class="h-4 w-4"></i>
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="linkedin" class="h-4 w-4"></i>
+              LinkedIn
+            </a>
+            <a href="https://github.com/your-handle" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="github" class="h-4 w-4"></i>
+              GitHub
+            </a>
+          </div>
+          <!-- Mobile menu button -->
+          <button class="md:hidden inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition" onclick="document.getElementById('mnav').classList.toggle('hidden')">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+          </button>
+        </div>
+        <!-- Mobile nav -->
+        <div id="mnav" class="md:hidden hidden pb-4">
+          <div class="grid grid-cols-2 gap-2">
+            <a href="#about" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">About</a>
+            <a href="#skills" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Skills</a>
+            <a href="#experience" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Experience</a>
+            <a href="#projects" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Projects</a>
+            <a href="#education" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Education</a>
+            <a href="#profiles" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Profiles</a>
+            <a href="#contact" class="rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">Contact</a>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <a href="mailto:your.email@example.com" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="mail" class="h-4 w-4"></i>Email
+            </a>
+            <a href="https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="linkedin" class="h-4 w-4"></i>LinkedIn
+            </a>
+            <a href="https://github.com/your-handle" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-200 hover:border-neutral-700 hover:bg-neutral-900 transition">
+              <i data-lucide="github" class="h-4 w-4"></i>GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-10 items-center py-14 sm:py-20">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">
+              <span class="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Open to opportunities
+            </div>
+            <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
+              Akash Sachan
+            </h1>
+            <p class="mt-3 text-lg text-neutral-300">
+              Backend Developer focused on building resilient systems: Java, Spring Boot, Node.js, Django, Microservices, REST APIs, and CI/CD.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-md bg-white text-neutral-900 px-4 py-2.5 text-sm font-medium hover:bg-neutral-200 transition outline outline-1 -outline-offset-1 outline-white/10">
+                <i data-lucide="send" class="h-4 w-4"></i> Contact Me
+              </a>
+              <a href="https://example.com/resume.pdf" target="_blank" class="inline-flex items-center gap-2 rounded-md border border-neutral-700/80 bg-neutral-900/60 px-4 py-2.5 text-sm text-neutral-200 hover:border-neutral-600 hover:bg-neutral-900 transition">
+                <i data-lucide="download" class="h-4 w-4"></i> Download Resume
+              </a>
+              <div class="inline-flex items-center gap-3 text-sm text-neutral-300">
+                <a href="tel:+917007796127" class="inline-flex items-center gap-1.5 hover:text-white transition">
+                  <i data-lucide="phone" class="h-4 w-4"></i> +91 7007796127
+                </a>
+                <span class="text-neutral-700">|</span>
+                <a href="mailto:your.email@example.com" class="inline-flex items-center gap-1.5 hover:text-white transition">
+                  <i data-lucide="mail" class="h-4 w-4"></i> your.email@example.com
+                </a>
+              </div>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Java</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Spring Boot</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Node.js</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Django</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Microservices</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">REST API</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">Docker</span>
+              <span class="rounded-full border border-neutral-800 bg-neutral-900/60 px-3 py-1 text-xs text-neutral-300">CI/CD</span>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 p-2">
+              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop" alt="Workspace" loading="lazy" class="h-64 w-full object-cover rounded-xl md:h-[380px]" />
+              <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10"></div>
+            </div>
+            <div class="absolute -bottom-4 -left-4 hidden sm:flex items-center gap-2 rounded-xl border border-neutral-800 bg-neutral-900/80 px-3 py-2 backdrop-blur">
+              <i data-lucide="shield-check" class="h-4 w-4 text-emerald-400"></i>
+              <span class="text-xs text-neutral-300">Auth, RBAC & Security-first</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_.8fr] gap-10">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">About</h2>
+            <p class="mt-4 text-neutral-300">
+              I design and build scalable backend systems with clean architecture, strong security, and operational excellence. My experience spans microservices, real-time communication with WebSockets, and data-driven APIs. I care about reliability, testing, and performance from day one.
+            </p>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
+                <div class="text-sm text-neutral-400">Location</div>
+                <div class="mt-1 text-neutral-200">India (IST)</div>
+              </div>
+              <div class="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
+                <div class="text-sm text-neutral-400">Experience</div>
+                <div class="mt-1 text-neutral-200">Feb 2023 – Present</div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-3">
+              <i data-lucide="target" class="h-5 w-5 text-cyan-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight">What I’m great at</h3>
+            </div>
+            <ul class="mt-4 space-y-3 text-sm text-neutral-300">
+              <li class="flex items-start gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Designing performant REST APIs and event-driven microservices.</span></li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Security: AuthN/AuthZ, JWT, RBAC, and best practices.</span></li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Observability, CI/CD pipelines, Dockerized deployments.</span></li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Testing mindset: unit tests (Jest/JUnit), reliability and maintainability.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Skills</h2>
+          <span class="text-xs text-neutral-400">Constantly learning</span>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Languages -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="code" class="h-5 w-5 text-indigo-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">Languages</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 text-neutral-200 border border-neutral-700">Java</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 text-neutral-200 border border-neutral-700">Kotlin</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 text-neutral-200 border border-neutral-700">Python</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 text-neutral-200 border border-neutral-700">JavaScript (Node.js)</span>
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="boxes" class="h-5 w-5 text-cyan-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">Frameworks</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Spring</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Spring Boot</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Django</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Node.js</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Express.js</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="wrench" class="h-5 w-5 text-fuchsia-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">Tools</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Eureka Server</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">API Gateway</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Docker</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">IntelliJ IDEA</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">VS Code</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Postman</span>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="database" class="h-5 w-5 text-emerald-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">Databases</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">PostgreSQL</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">SQL</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">MongoDB</span>
+            </div>
+          </div>
+
+          <!-- Advanced -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="cpu" class="h-5 w-5 text-amber-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">Advanced</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Microservices</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">REST API</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Async Programming</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Dependency Injection</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">AuthN/AuthZ</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">ORM</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">WebSockets</span>
+            </div>
+          </div>
+
+          <!-- DevOps -->
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="ship" class="h-5 w-5 text-teal-400"></i>
+              <h3 class="text-base font-semibold tracking-tight">DevOps & Deployment</h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">CI/CD</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Containerization</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-neutral-800/70 border border-neutral-700">Testing (Jest/JUnit)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strength meters -->
+        <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-neutral-300">API Design & Scalability</span>
+              <span class="text-xs text-neutral-500">Expert</span>
+            </div>
+            <div class="mt-3 h-2 w-full rounded-md bg-neutral-800">
+              <div class="h-2 w-[92%] rounded-md bg-gradient-to-r from-cyan-400 to-indigo-500"></div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-neutral-300">Security (Auth, RBAC)</span>
+              <span class="text-xs text-neutral-500">Advanced</span>
+            </div>
+            <div class="mt-3 h-2 w-full rounded-md bg-neutral-800">
+              <div class="h-2 w-[88%] rounded-md bg-gradient-to-r from-emerald-400 to-teal-500"></div>
+            </div>
+          </div>
+          <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-neutral-300">DevOps & Testing</span>
+              <span class="text-xs text-neutral-500">Advanced</span>
+            </div>
+            <div class="mt-3 h-2 w-full rounded-md bg-neutral-800">
+              <div class="h-2 w-[84%] rounded-md bg-gradient-to-r from-amber-400 to-pink-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Work Experience</h2>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-[1fr_.5fr] gap-10">
+          <div>
+            <!-- Role 1 -->
+            <div class="relative pl-6 pb-8">
+              <div class="absolute left-0 top-1.5 h-full w-px bg-neutral-800"></div>
+              <div class="absolute -left-1 top-1 h-2.5 w-2.5 rounded-full bg-indigo-400 ring-4 ring-indigo-500/10"></div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold tracking-tight">System Engineer · Krishworks Technology & Research Labs Pvt. Ltd</h3>
+                <span class="text-xs text-neutral-400">Feb 2023 – Present</span>
+              </div>
+              <ul class="mt-3 space-y-2 text-sm text-neutral-300">
+                <li class="flex gap-2"><i data-lucide="sparkles" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Developed robust, scalable REST APIs using Spring Boot, Node.js, and Django following best practices.</span></li>
+                <li class="flex gap-2"><i data-lucide="users" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Collaborated with frontend and QA to deliver high-quality features on time.</span></li>
+                <li class="flex gap-2"><i data-lucide="beaker" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Implemented unit testing (Jest) to ensure reliability and maintainability.</span></li>
+                <li class="flex gap-2"><i data-lucide="git-commit" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Utilized CI/CD for automated testing, integration, and deployment.</span></li>
+                <li class="flex gap-2"><i data-lucide="container" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Containerized applications with Docker across environments.</span></li>
+                <li class="flex gap-2"><i data-lucide="shield" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Built Authentication & Authorization system, ensuring data integrity.</span></li>
+                <li class="flex gap-2"><i data-lucide="key-round" class="mt-0.5 h-4 w-4 text-cyan-400"></i><span>Designed Role-Based Access Control (RBAC) APIs for granular permissions.</span></li>
+              </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="relative pl-6">
+              <div class="absolute left-0 top-1.5 h-full w-px bg-neutral-800"></div>
+              <div class="absolute -left-1 top-1 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-500/10"></div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold tracking-tight">Intern Backend Engineer · Krishworks</h3>
+                <span class="text-xs text-neutral-400">Jun 2022 – Oct 2022</span>
+              </div>
+              <ul class="mt-3 space-y-2 text-sm text-neutral-300">
+                <li class="flex gap-2"><i data-lucide="smartphone" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Built backend for content uploader tool in Slato mobile app.</span></li>
+                <li class="flex gap-2"><i data-lucide="server" class="mt-0.5 h-4 w-4 text-emerald-400"></i><span>Developed APIs, models, and serializers in Django REST Framework for a CRM application.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Highlights -->
+          <aside class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 h-max">
+            <div class="flex items-center gap-2">
+              <i data-lucide="trophy" class="h-5 w-5 text-amber-400"></i>
+              <h4 class="text-base font-semibold tracking-tight">Highlights</h4>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-300">
+              <li class="flex items-start gap-2"><i data-lucide="activity" class="mt-0.5 h-4 w-4 text-amber-400"></i><span>Horizontal scaling with load balancing and service discovery.</span></li>
+              <li class="flex items-start gap-2"><i data-lucide="lock" class="mt-0.5 h-4 w-4 text-amber-400"></i><span>Security-first delivery with encrypted channels and hardened endpoints.</span></li>
+              <li class="flex items-start gap-2"><i data-lucide="git-branch" class="mt-0.5 h-4 w-4 text-amber-400"></i><span>Automated testing and deployments via pipelines.</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Projects</h2>
+          <a href="https://github.com/your-handle?tab=repositories" target="_blank" class="inline-flex items-center gap-2 text-sm text-neutral-300 hover:text-white transition">
+            <i data-lucide="external-link" class="h-4 w-4"></i> View all
+          </a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- Microservices Quiz Platform -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="layers" class="h-5 w-5 text-indigo-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">Microservices Quiz Platform</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              Quiz and Question services with Spring Boot, discovery via Eureka, routing through API Gateway, and load-balanced scaling with isolated databases.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="tag px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Spring Boot</span>
+              <span class="tag px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Eureka</span>
+              <span class="tag px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">API Gateway</span>
+              <span class="tag px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">PostgreSQL</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="github" class="h-4 w-4"></i> Repo
+              </a>
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="book-open" class="h-4 w-4"></i> Case Study
+              </a>
+            </div>
+          </article>
+
+          <!-- Chat Application -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="messages-square" class="h-5 w-5 text-emerald-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">Real-time Chat Application</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              WebSocket-powered real-time messaging with authentication, persistence, and horizontal scaling for high concurrency.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Spring Boot</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">WebSockets</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Security</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="github" class="h-4 w-4"></i> Repo</a>
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="book-open" class="h-4 w-4"></i> Case Study</a>
+            </div>
+          </article>
+
+          <!-- WhatsApp Clone -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="smartphone" class="h-5 w-5 text-teal-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">WhatsApp Clone (Kotlin + Firebase)</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              Messaging app with Firebase Auth (SMS), Cloud Functions, and push notifications for reliable delivery.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Kotlin</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Firebase</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Notifications</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="github" class="h-4 w-4"></i> Repo</a>
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="play-circle" class="h-4 w-4"></i> Demo</a>
+            </div>
+          </article>
+
+          <!-- Weather API Application -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="cloud-sun" class="h-5 w-5 text-sky-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">Weather API App</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              Kotlin app leveraging Retrofit to fetch weather data and present real-time city temperatures.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Kotlin</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Retrofit</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">REST</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="github" class="h-4 w-4"></i> Repo</a>
+            </div>
+          </article>
+
+          <!-- Plant Disease Detection -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="leaf" class="h-5 w-5 text-emerald-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">Plant Disease Detection (ML)</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              CNN + DenseNet model for leaf disease classification using curated datasets and transfer learning.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">CNN</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">DenseNet</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Python</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="github" class="h-4 w-4"></i> Repo</a>
+            </div>
+          </article>
+
+          <!-- My Awesome Cart -->
+          <article class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shopping-bag" class="h-5 w-5 text-pink-400"></i>
+              <h3 class="text-lg font-semibold tracking-tight group-hover:text-white">My Awesome Cart (Django)</h3>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">
+              E-commerce backend with Django Admin for product management and category-based storefront rendering.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">Django</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">DRF</span>
+              <span class="px-2 py-1 text-[11px] rounded bg-neutral-800/70 border border-neutral-700">PostgreSQL</span>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="#" class="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition"><i data-lucide="github" class="h-4 w-4"></i> Repo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Education</h2>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold tracking-tight">B.Tech, Information Technology</h3>
+              <span class="text-xs text-neutral-400">2019 – 2023</span>
+            </div>
+            <div class="mt-1 text-sm text-neutral-300">Rajkiya Engineering College, Banda, Uttar Pradesh</div>
+            <div class="mt-2 inline-flex items-center gap-1.5 text-xs text-neutral-400">
+              <i data-lucide="award" class="h-4 w-4"></i> CGPA: 8.3
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold tracking-tight">Intermediate (12th)</h3>
+              <span class="text-xs text-neutral-400">2016 – 2018</span>
+            </div>
+            <div class="mt-1 text-sm text-neutral-300">Morning Star Children’s Academy, Orai, Uttar Pradesh</div>
+            <div class="mt-2 inline-flex items-center gap-1.5 text-xs text-neutral-400">
+              <i data-lucide="percent" class="h-4 w-4"></i> Percentage: 72%
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coding Profiles -->
+    <section id="profiles" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Coding Profiles</h2>
+          <span class="text-xs text-neutral-400">Proof of problem solving</span>
+        </div>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="#" target="_blank" class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="code-xml" class="h-5 w-5 text-emerald-400"></i>
+                <h3 class="text-base font-semibold tracking-tight group-hover:text-white">GeeksforGeeks</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="h-4 w-4 text-neutral-400 group-hover:text-white"></i>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">Score: 250+ · Strong DSA practice.</p>
+          </a>
+
+          <a href="#" target="_blank" class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="braces" class="h-5 w-5 text-indigo-400"></i>
+                <h3 class="text-base font-semibold tracking-tight group-hover:text-white">LeetCode</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="h-4 w-4 text-neutral-400 group-hover:text-white"></i>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">150+ problems solved.</p>
+          </a>
+
+          <a href="#" target="_blank" class="group rounded-2xl border border-neutral-800 bg-neutral-900/40 p-5 hover:border-neutral-700 hover:bg-neutral-900 transition">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="terminal" class="h-5 w-5 text-pink-400"></i>
+                <h3 class="text-base font-semibold tracking-tight group-hover:text-white">HackerRank</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="h-4 w-4 text-neutral-400 group-hover:text-white"></i>
+            </div>
+            <p class="mt-2 text-sm text-neutral-300">5★ achievements.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12 sm:py-16 border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white">Let’s build something</h2>
+            <p class="mt-3 text-neutral-300">Reach out for backend roles, collaborations, or consulting.</p>
+
+            <div class="mt-6 space-y-3">
+              <a href="mailto:your.email@example.com" class="flex items-center gap-3 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="mail" class="h-5 w-5"></i> your.email@example.com
+              </a>
+              <a href="tel:+917007796127" class="flex items-center gap-3 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="phone" class="h-5 w-5"></i> +91 7007796127
+              </a>
+              <a href="https://www.linkedin.com/in/your-link" target="_blank" class="flex items-center gap-3 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="linkedin" class="h-5 w-5"></i> LinkedIn
+              </a>
+              <a href="https://github.com/your-handle" target="_blank" class="flex items-center gap-3 text-sm text-neutral-300 hover:text-white transition">
+                <i data-lucide="github" class="h-5 w-5"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <form class="grid grid-cols-1 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-sm text-neutral-400">Your name</label>
+                  <input type="text" placeholder="John Doe" class="mt-1 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-200 placeholder-neutral-600 outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-neutral-700 transition" />
+                </div>
+                <div>
+                  <label class="text-sm text-neutral-400">Email</label>
+                  <input type="email" placeholder="name@company.com" class="mt-1 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-200 placeholder-neutral-600 outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-neutral-700 transition" />
+                </div>
+              </div>
+              <div>
+                <label class="text-sm text-neutral-400">Message</label>
+                <textarea rows="4" placeholder="Tell me about your project…" class="mt-1 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-neutral-200 placeholder-neutral-600 outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-neutral-700 transition"></textarea>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="inline-flex items-center gap-2 text-xs text-neutral-500">
+                  <i data-lucide="shield-check" class="h-4 w-4"></i> Your info is sent via email.
+                </div>
+                <button type="button" onclick="window.location.href='mailto:your.email@example.com'" class="inline-flex items-center gap-2 rounded-md bg-white text-neutral-900 px-4 py-2.5 text-sm font-medium hover:bg-neutral-200 transition outline outline-1 -outline-offset-1 outline-white/10">
+                  <i data-lucide="send" class="h-4 w-4"></i> Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-900/60">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <div class="flex h-8 w-8 items-center justify-center rounded-md bg-neutral-800 outline outline-1 outline-neutral-700">
+              <span class="text-sm font-semibold tracking-tight">AS</span>
+            </div>
+            <span class="text-sm text-neutral-400">© <span id="year"></span> Akash Sachan. All rights reserved.</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="#top" class="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition">
+              <i data-lucide="arrow-up" class="h-4 w-4"></i> Back to top
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: Icons + small helpers -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      // Initialize lucide icons with 1.5 stroke width
+      lucide.createIcons({
+        attrs: { 'stroke-width': 1.5 }
+      });
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
