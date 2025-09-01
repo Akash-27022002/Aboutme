@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Editor – LaTeX‑style</title>
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900 */
+      --muted:#1f2937;       /* gray-800 */
+      --text:#e5e7eb;        /* gray-200 */
+      --accent:#22d3ee;      /* cyan-400 */
+      --accent-2:#a78bfa;    /* violet-400 */
+      --border:#374151;      /* gray-700 */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text); font:15px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+    }
+    header{
+      padding:14px 18px; border-bottom:1px solid var(--border); background:linear-gradient(180deg, rgba(34,211,238,.1), rgba(167,139,250,.08));
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    }
+    header h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .toolbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+    button, .select{
+      background:var(--muted); color:var(--text); border:1px solid var(--border); border-radius:12px; padding:8px 10px; cursor:pointer; font-weight:600;
+    }
+    button:hover{border-color:var(--accent)}
+    .wrap{display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:14px}
+    @media (max-width: 980px){ .wrap{grid-template-columns:1fr;}}
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; min-height:300px}
+    .card header{background:none; border:0; padding:10px 12px; display:flex; justify-content:space-between; align-items:center}
+    .card header h2{font-size:13px; color:#cbd5e1; margin:0; text-transform:uppercase; letter-spacing:.12em}
+    textarea{
+      width:100%; height:100%; flex:1; resize:vertical; min-height:280px; border:0; outline:none; background:transparent; color:var(--text);
+      padding:12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:14px; line-height:1.5;
+    }
+    .preview{
+      padding:16px; overflow:auto; height:100%; min-height:320px; backdrop-filter: blur(0px);
+    }
+    .status{font-size:12px; color:#9ca3af}
+    .footerBar{display:flex; gap:8px; align-items:center}
+    .pill{padding:4px 8px; border:1px solid var(--border); border-radius:999px; font-size:12px; color:#a7f3d0;}
+    .row{display:flex; gap:8px; flex-wrap:wrap}
+    .grow{flex:1}
+    .spacer{flex:1}
+    .hl{color:var(--accent)}
+    .secondary{opacity:.9}
+    .small{font-size:12px}
+  </style>
+  <!-- MathJax v3 for TeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']], processEscapes: true },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <h1>LaTeX‑style Math Editor</h1>
+    <div class="toolbar">
+      <button data-snippet="\\int ">∫</button>
+      <button data-snippet="\\int_{a}^{b} ">∫ limits</button>
+      <button data-snippet="\\frac{\u25A1}{\u25A1}">fraction</button>
+      <button data-snippet="\\sqrt{\u25A1}">√</button>
+      <button data-snippet="x^{\u25A1}">sup ^</button>
+      <button data-snippet="x_{\u25A1}">sub _</button>
+      <button data-snippet="x^{a^{b}}">power of power</button>
+      <button data-snippet="\\frac{d}{dx}">d/dx</button>
+      <button data-snippet="\\sum_{i=1}^{n} ">∑</button>
+      <button data-snippet="\\lim_{x\\to 0} ">lim</button>
+      <button id="btnInline">Wrap inline \(…\)</button>
+      <button id="btnBlock">Wrap block \[…\]</button>
+      <button id="btnClear">Clear</button>
+      <button id="btnDownload">Export .tex</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="status">Type LaTeX in the left pane → renders live on the right.</div>
+  </header>
+
+  <div class="wrap">
+    <section class="card">
+      <header>
+        <h2>Source (LaTeX)</h2>
+        <div class="footerBar small">
+          <span class="pill">Inline: <span class="hl">\\( … \\)</span></span>
+          <span class="pill">Block: <span class="hl">\\[ … \\]</span></span>
+        </div>
+      </header>
+      <textarea id="editor" spellcheck="false" placeholder="Examples:\n\nInline: \\( a^2 + b^2 = c^2 \\)\nBlock: \\[ \int_{0}^{\pi} \sin x\,dx = 2 \\]\nDerivative: \\[ \frac{d}{dx}\,x^n = n x^{n-1} \\]\nFractions: $\\frac{1}{1+\\frac{1}{x}}$\nPower of power: $x^{a^{b}}$\nSub/Sup: $x_i^j$\n"></textarea>
+    </section>
+
+    <section class="card">
+      <header>
+        <h2>Preview</h2>
+        <div class="footerBar small secondary" id="metrics">&nbsp;</div>
+      </header>
+      <div id="preview" class="preview"></div>
+    </section>
+  </div>
+
+  <script>
+    const editor = document.getElementById('editor');
+    const preview = document.getElementById('preview');
+    const metrics = document.getElementById('metrics');
+
+    function setCaretInsertion(textarea, insertText){
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const before = textarea.value.slice(0, start);
+      const after  = textarea.value.slice(end);
+      textarea.value = before + insertText + after;
+      const newPos = start + insertText.length;
+      textarea.focus();
+      textarea.setSelectionRange(newPos, newPos);
+      render();
+    }
+
+    function wrapSelection(textarea, left, right){
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const before = textarea.value.slice(0, start);
+      const sel = textarea.value.slice(start, end) || '…';
+      const after = textarea.value.slice(end);
+      textarea.value = before + left + sel + right + after;
+      const caret = (before + left + sel + right).length;
+      textarea.focus();
+      textarea.setSelectionRange(caret, caret);
+      render();
+    }
+
+    async function render(){
+      const t0 = performance.now();
+      preview.innerText = editor.value; // MathJax will typeset this
+      // Re-typeset
+      if (window.MathJax && MathJax.typesetPromise) {
+        await MathJax.typesetPromise([preview]);
+      }
+      const t1 = performance.now();
+      const lines = editor.value.split('\n').length;
+      metrics.textContent = `Lines: ${lines} • Rendered in ${Math.round(t1 - t0)} ms`;
+    }
+
+    // Toolbar bindings
+    document.querySelectorAll('button[data-snippet]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const raw = btn.getAttribute('data-snippet');
+        // Replace ▢ with a placeholder \square (or leave empty braces)
+        const insertText = raw.replaceAll('\u25A1', '\\square');
+        setCaretInsertion(editor, insertText);
+      });
+    });
+
+    document.getElementById('btnInline').onclick = () => wrapSelection(editor, "\\(", "\\)");
+    document.getElementById('btnBlock').onclick = () => wrapSelection(editor, "\\[", "\\]");
+
+    document.getElementById('btnClear').onclick = () => { editor.value = ''; render(); };
+
+    document.getElementById('btnDownload').onclick = () => {
+      const blob = new Blob([editor.value], {type: 'text/x-tex'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'math-editor-output.tex';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+
+    // Live render with debounce
+    let timer; const DEBOUNCE = 120;
+    editor.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(render, DEBOUNCE);
+    });
+
+    // Seed with a demo
+    editor.value = `Inline: \\( a^2 + b^2 = c^2 \\)\n\nBlock integral with limits:\n\\[\\int_{0}^{\\pi} \\sin x\,dx = 2\\]\n\nFraction nested: $\\frac{1}{1+\\frac{1}{x}}$\n\nDerivative: \\[ \\frac{d}{dx} x^n = n x^{n-1} \\]\n\nPower of power: $x^{a^{b}}$\n\nSubscript & superscript: $x_i^j$`;
+    render();
+  </script>
+</body>
+</html>
